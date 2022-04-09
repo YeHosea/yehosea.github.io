@@ -1,0 +1,670 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="">
+  
+  <meta name="author" content="YeHosea">
+  <meta name="keywords" content="">
+  
+  <title>stl-vector - YeHosea</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yehosea.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"5WAE2YpdtylrwQ9lFFFPskxA-gzGzoHsz","app_key":"XjU6sOghgVjRNRtuI96ncSyN","server_url":"https://5wae2ypd.lc-cn-n1-shared.com"}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://yehosea-blog.oss-cn-hangzhou.aliyuncs.com/img/background.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="stl-vector">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-10 08:48" pubdate>
+        2021年5月10日 早上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      31
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">stl-vector</h1>
+            
+            <div class="markdown-body">
+              <h3 id="常考"><a class="markdownIt-Anchor" href="#常考"></a> 常考</h3>
+<h4 id="vector的底层实现"><a class="markdownIt-Anchor" href="#vector的底层实现"></a> vector的底层实现</h4>
+<h4 id="push_back复杂度-代码实现"><a class="markdownIt-Anchor" href="#push_back复杂度-代码实现"></a> push_back复杂度 代码实现</h4>
+<details>
+<summary>Code</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt;</span><br><span class="hljs-keyword">void</span> <span class="hljs-built_in">vector</span>&lt;T&gt;::push_back(<span class="hljs-keyword">const</span> value_type&amp; value)<br>&#123;<br>    <span class="hljs-keyword">if</span> (end_ != cap_)<br>    &#123;<br>        construct(address_of(*end_), value);<br>        ++end_;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        reallocate_insert(end_, value);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt;</span><br><span class="hljs-keyword">void</span> <span class="hljs-built_in">vector</span>&lt;T&gt;::reallocate_insert(iterator pos, <span class="hljs-keyword">const</span> value_type&amp; value)<br>&#123;<br>  <span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> new_size = get_new_cap(<span class="hljs-number">1</span>);<br>  <span class="hljs-keyword">auto</span> new_begin = data_allocator::allocate(new_size);<br>  <span class="hljs-keyword">auto</span> new_end = new_begin;<br>  <span class="hljs-keyword">const</span> value_type&amp; value_copy = value;<br>  <span class="hljs-keyword">try</span><br>  &#123;<br>    new_end = mystl::uninitialized_move(begin_, pos, new_begin);<br>    data_allocator::construct(mystl::address_of(*new_end), value_copy);<br>    ++new_end;<br>    new_end = mystl::uninitialized_move(pos, end_, new_end);<br>  &#125;<br>  <span class="hljs-keyword">catch</span> (...)<br>  &#123;<br>    data_allocator::deallocate(new_begin, new_size);<br>    <span class="hljs-keyword">throw</span>;<br>  &#125;<br>  destroy_and_recover(begin_, end_, cap_ - begin_);<br>  begin_ = new_begin;<br>  end_ = new_end;<br>  cap_ = new_begin + new_size;<br>&#125;<br></code></pre></td></tr></table></figure>
+</details>
+<h4 id="push_back使用的是指针-引用还是拷贝"><a class="markdownIt-Anchor" href="#push_back使用的是指针-引用还是拷贝"></a> push_back使用的是指针、引用还是拷贝</h4>
+<h4 id="vector和list的区别-查找效率谁快"><a class="markdownIt-Anchor" href="#vector和list的区别-查找效率谁快"></a> vector和list的区别 查找效率谁快</h4>
+<h4 id="c语言实现vector"><a class="markdownIt-Anchor" href="#c语言实现vector"></a> c语言实现vector</h4>
+<h4 id="vector内存管理"><a class="markdownIt-Anchor" href="#vector内存管理"></a> vector内存管理</h4>
+<details>
+<summary>Code</summary>
+为了避免每一次插入都要扩容，vector在初始化时会让容量大于预装入的数据长。
+<p>当插入数据的时候，如果此时容量已满，那么就实现扩容（扩容并不是在原vector的基础上，而是新建一个大小是旧容量的150%的新vector，然后再将旧vector的值拷贝到新vector，再将插入的值拷贝进vector。然后调用析构函数释放旧vector的内存）。</p>
+</details>
+<h4 id="vector增加元素时内存变化情况"><a class="markdownIt-Anchor" href="#vector增加元素时内存变化情况"></a> vector增加元素时，内存变化情况</h4>
+<h4 id="vector的容量过小后是如何实现扩增容量的"><a class="markdownIt-Anchor" href="#vector的容量过小后是如何实现扩增容量的"></a> vector的容量过小后，是如何实现扩增容量的？</h4>
+<details>
+<summary>Code</summary>
+先按照一定的增长方式增加容量大小，重新分配一个符合该大小的vector，再将原本vector的数组拷贝进新的vector，再插入新的值。因为每一次重新分配vector和拷贝十分耗时，所以vector并不会在每次增加新数据时都重新分配，那么这就意味着我们需要定义一个比我们预期存储范围还大出一部分（这一部分用于可能的范围增长）的vector，这样就可以避免每次重新分配vector。
+</details>
+<h4 id="如果删除vector中间元素-怎么实现不能用erease无序"><a class="markdownIt-Anchor" href="#如果删除vector中间元素-怎么实现不能用erease无序"></a> 如果删除vector中间元素 怎么实现（不能用erease，无序）</h4>
+<details>
+<summary>Code</summary>
+对顺序无要求
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; vec.size(); ++i)<br>&#123;<br>    <span class="hljs-keyword">if</span>(...)　　　　　　　　　　　　　　<span class="hljs-comment">// 删除条件</span><br>    &#123;<br>        vec[i] = vec.back();　　　　<span class="hljs-comment">// vec[i]表示要删除的元素</span><br>        vec.pop_back();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</details>
+<h4 id="定义了两个vectorvector里面存的是类是否可以直接使用memcpy去复制vector"><a class="markdownIt-Anchor" href="#定义了两个vectorvector里面存的是类是否可以直接使用memcpy去复制vector"></a> 定义了两个vector，vector里面存的是类，是否可以直接使用memcpy去复制vector</h4>
+<details>
+<summary>Code</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;data(<span class="hljs-number">1024</span>);<span class="hljs-comment">//这里要预分配vector大小</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)buf[i]=i;<br><span class="hljs-built_in">memcpy</span>((<span class="hljs-keyword">int</span>*)&amp;data[<span class="hljs-number">0</span>], buf, data.size());<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">10</span>;i++)<span class="hljs-built_in">cout</span>&lt;&lt;data[i]&lt;&lt;<span class="hljs-string">&#x27; &#x27;</span>;<br></code></pre></td></tr></table></figure>
+</details>
+<h4 id="vector的扩张因子是几倍扩容"><a class="markdownIt-Anchor" href="#vector的扩张因子是几倍扩容"></a> vector的扩张因子(是几倍扩容)</h4>
+<details>
+<summary>Code</summary>
+1.5或2
+使用k=2增长因子的问题在于，每次扩展的新尺寸必然刚好大于之前分配的总和
+<p>之前被分配的空间不能利用对缓存并不友好，最好把增长因子设为1&lt;k&lt;2，例如 Folly 采用 1.5，RapidJSON 也是跟随采用 1.5，k=1.5时，可以在几次扩容之后，重用之前的内存。</p>
+</details>
+<h4 id="设计一个数据结构可以满足存取数有序又要结合list跟vector的优点"><a class="markdownIt-Anchor" href="#设计一个数据结构可以满足存取数有序又要结合list跟vector的优点"></a> 设计一个数据结构：可以满足存取数有序，又要结合list跟vector的优点</h4>
+<details>
+<summary>Code</summary>
+list+hashmap
+</details>
+<h4 id="vector迭代器失效的情况"><a class="markdownIt-Anchor" href="#vector迭代器失效的情况"></a> vector迭代器失效的情况</h4>
+<details>
+<summary>Code</summary>
+<ol>
+<li>
+<p>当插入（push_back）一个元素后，end操作返回的迭代器肯定失效。</p>
+<p>vector在push_back的时候当容量不足时会触发扩容，导致整个vector重新申请内存，并且将原有的数据复制到新的内存中，并将原有内存释放，这自然是会导致迭代器失效的，因为迭代器所指的内存都已经被释放。</p>
+</li>
+<li>
+<p>当插入(push_back)一个元素后，capacity返回值与没有插入元素之前相比有改变，则需要重新加载整个容器，此时first和end操 作返回的迭代器都会失效。</p>
+</li>
+<li>
+<p>当进行删除操作（erase，pop_back）后，指向删除点的迭代器全部失效；指向删除点后面的元素的迭代器也将全部失效。</p>
+</li>
+</ol>
+</details>
+<h4 id="vector用迭代器删除后迭代器会不会失效"><a class="markdownIt-Anchor" href="#vector用迭代器删除后迭代器会不会失效"></a> vector用迭代器删除后迭代器会不会失效</h4>
+<p>同上</p>
+<details>
+<summary>Code</summary>
+vector::erase()的实质是将迭代器后面的元素全部复制一遍，往前移动一个位置，因此a.erase(iter)删除后当前位置即为原iter的后一位，所以需要将删除后返回的位置赋给iter，避免iter直接++成为野指针
+</details>
+<h4 id="vector的emplace_back为什么比push_back高效"><a class="markdownIt-Anchor" href="#vector的emplace_back为什么比push_back高效"></a> vector的emplace_back为什么比push_back高效？</h4>
+<details>
+<summary>Code</summary>
+<p>push_back(A(“cc”)) 此时它创建一个临时局部A类对象。而emplace_back(“cc”)可以在内存中直接创建对象而不需要传入对象。</p>
+<p>总的来说，再插入值的时候，push_back会拷贝元素，emplace_back会构造元素。但是当插入的是对象的时候，emplace_back的形参里的参数应该与对象的构造函数相对应</p>
+<p>emplace_back函数原型：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;class... Args&gt;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">emplace_back</span> <span class="hljs-params">(Args&amp;&amp;... args)</span></span>;<br></code></pre></td></tr></table></figure>
+<p>在容器尾部添加一个元素，这个元素原地构造，不需要触发拷贝构造和转移构造。而且调用形式更加简洁，直接根据参数初始化临时对象的成员。</p>
+</details>
+<h4 id="描述map和vector的不同"><a class="markdownIt-Anchor" href="#描述map和vector的不同"></a> 描述map和vector的不同。</h4>
+<details>
+<summary>Code</summary>
+<p>两类容器的根本差别在于，顺序容器中的元素是“顺序”存储的（链表容器中的元素虽然不是在内存中“连续”存储的，但仍然是按“顺序”存储的）。理解“顺序”的关键，是理解容器支持的操作形式以及效率。</p>
+<p>对于vector这样的顺序容器，元素在其中按顺序存储，每个元素有唯一对应的位置编号，所有操作都是按编号（位置）进行的。例如，获取元素（头、尾、用下标获取任意位置）、插入删除元素（头、尾、任意位置）、遍历元素（按元素位置顺序逐一访问）。底层的数据结构是数组、链表，简单但已能保证上述操作的高效。</p>
+<p>而对于依赖值的元素访问，例如查找（搜索）给定值（find)，在这种数据结构上的实现是要通过遍历完成的，效率不佳。</p>
+<p>而map这种关联容器，就是为了高效实现“按值访问元素”这类操作而设计的。为了达到这一目的，容器中的元素是按关键字值存储的，关键字值与元素数据建立起对应关系，这就是“关联”的含义。底层数据结构是红黑树、哈希表等，可高效实现按关键字值查找、添加、删除元素等操作。</p>
+</details>
+<h4 id="编程"><a class="markdownIt-Anchor" href="#编程"></a> 编程</h4>
+<p>（1）编写函数，返回一个动态分配的int的vector。将此vector传递给另一个函数，这个函数读取标准输入，将读入的值保存在 vector 元素中。再将vector传递给另一个函数，打印读入的值。记得在恰当的时刻delete vector。<br />
+（2）重做第（1）题，这次使用 shared_ptr而不是内置指针。<br />
+待补充</p>
+<h4 id="如何从一个list初始化一个vector-从一个vector又该如何创建编写代码验证你的答案"><a class="markdownIt-Anchor" href="#如何从一个list初始化一个vector-从一个vector又该如何创建编写代码验证你的答案"></a> 如何从一个list初始化一个vector? 从一个vector又该如何创建?编写代码验证你的答案。</h4>
+<details>
+<summary>Code</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; ilist = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>&#125;;<br><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ivec = &#123;<span class="hljs-number">7</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>&#125;;<br><span class="hljs-comment">// 容器类型不同，不能使用拷贝初始化</span><br><span class="hljs-comment">// vector&lt;double&gt; ivec (ilist);</span><br><span class="hljs-comment">// 元素类型相容，因此可采用范围初始化</span><br><span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt; <span class="hljs-title">dvec</span> <span class="hljs-params">(ilist.begin(),ilist.end())</span></span>;<br><span class="hljs-comment">// 容器类型不同，不能使用拷贝初始化</span><br><span class="hljs-comment">// vector&lt;double&gt; dvec1 (ivec);</span><br><span class="hljs-comment">// 元素类型相容，因此可采用范围初始化</span><br><span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt; <span class="hljs-title">dvec1</span> <span class="hljs-params">(ivec.begin(),ivec.end())</span></span>;<br></code></pre></td></tr></table></figure>
+</details>
+<h4 id="对6种创建和初始化vector对象的方法每一种都给出一个实例-解释每个vector包含什么值"><a class="markdownIt-Anchor" href="#对6种创建和初始化vector对象的方法每一种都给出一个实例-解释每个vector包含什么值"></a> 对6种创建和初始化vector对象的方法，每一种都给出一个实例。解释每个vector包含什么值。</h4>
+<details>
+<summary>Code</summary>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-number">1.</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ilist1;     <span class="hljs-comment">//默认初始化，vector 为空— —size返回0，表明容器中尚未有元素；capacity返回0，意味着尚未分配存储空间。这种初始化方式适合于元素个数和值未知，需要在程序运行中动态添加的情况。</span><br>2. vector&lt;int&gt; ilist2 (ilist)；//ilist2初始化为ilist的拷贝，ilist必须与ilist2类型相同，即也是int的vector类型，ilist2将具有与ilist相同的容量和元素。<br>   <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ilist2_1=ilist；<span class="hljs-comment">//等价方式</span><br><span class="hljs-number">3.</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ilist = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>&#125;;      <span class="hljs-comment">//ilist</span><br>初始化为列表中元素的拷贝，列表中的元素类型必须与ilist的元素类型相容，在本例中必须是与整型相容的数值类型。对于整型，会直接拷贝其值，对于其他类型则需进行类型转换（如<span class="hljs-number">3.0</span>转换为<span class="hljs-number">3</span>）。这种初始化方式适合元素数量和值预先可知的情况。<br>   <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ilist_1 &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span> ｝;      <span class="hljs-comment">//等价方式</span><br><span class="hljs-number">4.</span> <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ilist3</span> <span class="hljs-params">(ilist.begin()+<span class="hljs-number">2</span>, ilist.end ()<span class="hljs-number">-1</span>)</span></span>;<br><span class="hljs-comment">//ilist3初始化为两个迭代器指定范围中的元素的拷贝，范围中的元素类型必须与ilist3的元素类型相容，在本例中ilist3被初始化为（3，4，5，6 &#125;。注意，由于只要求范围中元素类型与待初始化的容器的元素类型相容，因此，迭代器来自于不同类型的容器是可能的，例如，用一个double的list的范围来初始化ilist3是可行的。另外，由于构造函数只是读取范围中的元素并进行拷贝，因此使用普通迭代器还是const迭代器来指出范围并无区别。这种初始化方法特别适合于获取一个序列的子序列。</span><br>5. vector&lt;int&gt; ilist4 (7)；//默认值初始化，ilist4中将包含7个元素，每个元素进行缺省的值初始化，对于int，也就是被赋值为0，因此ilist4被初始化为包含7个0。当程序运行初期元素大致数量可预知，而元素的值需动态获取时，可采用这种初始化方式。<br>6. vector&lt;int&gt; ilist5 (7, 3)；//指定值初始化，ilist5被初始化为包含7个值为3的int。<br></code></pre></td></tr></table></figure>
+</details>
+<h4 id="vector为什么是线程安全的"><a class="markdownIt-Anchor" href="#vector为什么是线程安全的"></a> vector为什么是线程安全的</h4>
+<p>?不是线程安全的吧…原因如下题</p>
+<h4 id="在多线程时对vector写时可能会出现什么错误"><a class="markdownIt-Anchor" href="#在多线程时对vector写时可能会出现什么错误"></a> 在多线程时，对vector写时可能会出现什么错误？</h4>
+<details>
+<summary>Code</summary>
+程序崩溃，因为线程A vector进行写时，如果内存已满会重新申请内存，此时它的地址已经改变，而线程B依旧在写入/读入已经无效的地址，就会造成崩溃。有两种解决办法：
+<ol>
+<li>
+<p>暴力解决法：直接给vector定义一个较大的内存，避免重新申请</p>
+</li>
+<li>
+<p>加同步锁，每次写入前都锁住，执行完本次写入操作后，其他线程才能再次写入或读入。</p>
+</li>
+</ol>
+<p>所以对容器的modify操作应该是原子性的（一旦操作开始，到结束之前都不会切换到其他线程）</p>
+</details>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/STL/">STL</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/stl/">stl</a>
+                    
+                      <a class="hover-with-bg" href="/tags/vector/">vector</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/01/compilation-principle-1/">
+                        <span class="hidden-mobile">编译原理求FIRST集、FOLLOW集和SELECT集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "5WAE2YpdtylrwQ9lFFFPskxA-gzGzoHsz",
+          app_key: "XjU6sOghgVjRNRtuI96ncSyN",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备2021004013号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
